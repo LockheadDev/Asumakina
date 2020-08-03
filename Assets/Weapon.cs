@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    private Rigidbody2D rb ;
     public Transform[] firePoint;
     public string bulletType = "basic";
     public GameObject bulletPrefabBasic;
@@ -18,7 +19,8 @@ public class Weapon : MonoBehaviour
     public float fireRate = 5f;
 
     private float lastFired;
-     void Awake()
+
+    void Awake()
     {
         baseFireRate = fireRate;
     }
@@ -28,16 +30,22 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Fire rate shooting (automatic)
-        if(Input.GetKey(KeyCode.Space))
+        rb =GetComponent<Rigidbody2D>();
+        if(rb == null)
         {
+            Debug.Log("did not found rigid body");
+            return;
+        }
+        float g = Mathf.Abs(rb.angularVelocity); //retrieve angular elocity
+        fireRate = g/100; // adjust the value for firerate
+        
+        //Fire rate shooting (automatic)
             if (Time.time - lastFired > 1 / fireRate)
             {
                 lastFired = Time.time;
                 Shoot(bulletType,shoottype);
             }
 
-        }
     }
     
     void Shoot(string blltype,string shttype)

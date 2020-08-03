@@ -6,14 +6,32 @@ public class Mover : MonoBehaviour
 {
     private Rigidbody2D rb ;
     public float speed =5f;
+    public Vector2 maxVelocity;
+    public Vector2 minVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
         float x,y;
-        x = Random.Range(-1,1.1F);
-        y = Random.Range(-1,1.1F);
+        x = Random.Range(minVelocity.x,maxVelocity.x);
+        y = Random.Range(minVelocity.y,maxVelocity.y);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(x,y) * speed;
+
+        rb.velocity = new Vector2(Randomize(x),Randomize(y)) * speed;
         Debug.Log("Where is speed");
+    }
+
+    float Randomize(float num)
+    {
+        int u = Random.Range(0,2);
+        if(u==0)
+        {
+            num = -num;
+        }
+        if(u==1)
+        {
+            num = num;
+        }
+        return num;
     }
 }
