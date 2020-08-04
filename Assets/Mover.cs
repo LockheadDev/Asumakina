@@ -18,7 +18,6 @@ public class Mover : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         rb.velocity = new Vector2(Randomize(x),Randomize(y)) * speed;
-        Debug.Log("Where is speed");
     }
 
     float Randomize(float num)
@@ -30,7 +29,6 @@ public class Mover : MonoBehaviour
         }
         if(u==1)
         {
-            num = num;
         }
         return num;
     }

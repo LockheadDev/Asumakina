@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviour
 
     private float lastFired;
 
+    private float g;
+
     void Awake()
     {
         baseFireRate = fireRate;
@@ -36,7 +38,9 @@ public class Weapon : MonoBehaviour
             Debug.Log("did not found rigid body");
             return;
         }
-        float g = Mathf.Abs(rb.angularVelocity); //retrieve angular elocity
+
+        g = Mathf.Abs(rb.angularVelocity); //retrieve angular velocity
+        
         fireRate = g/100; // adjust the value for firerate
         
         //Fire rate shooting (automatic)
@@ -56,10 +60,20 @@ public class Weapon : MonoBehaviour
                 switch(blltype)
                 {
                     case "basic":
-                    for (int i = 0; i<firePoint.Length;i++)
-                    {
-                    Instantiate(bulletPrefabBasic,firePoint[i].position,firePoint[i].rotation);
-                    }
+                    if(g<=500)
+                        {
+                            for (int i = 0; i<firePoint.Length;i=i+2)
+                            {
+                                Instantiate(bulletPrefabBasic,firePoint[i].position,firePoint[i].rotation);
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i<firePoint.Length;i++)
+                            {
+                                Instantiate(bulletPrefabBasic,firePoint[i].position,firePoint[i].rotation);
+                            }
+                        }
                     break;
 
                     case "amped":
