@@ -26,7 +26,11 @@ public class control : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInputx*speed*Time.fixedDeltaTime,moveInputy*speed*Time.fixedDeltaTime);
+        if(Mathf.Abs(Input.GetAxisRaw("Vertical"))==1 && Mathf.Abs(Input.GetAxisRaw("Horizontal"))==1 ){
+             rb.velocity = new Vector2(moveInputx*speed*Time.fixedDeltaTime/1.5F,moveInputy*speed*Time.fixedDeltaTime/1.5F);
+        }else{
+            rb.velocity = new Vector2(moveInputx*speed*Time.fixedDeltaTime,moveInputy*speed*Time.fixedDeltaTime);
+        }
     }
     
 }

@@ -317,6 +317,8 @@ MonoBehaviour:
   spawnWait: 0
   spawnLeastWait: 0.2
   spawnMostWait: 3
+  minSpawnAtOneTime: 1
+  maxSpawnAtOneTime: 3
   startWait: 3
   stop: 0
 --- !u!4 &721724548
@@ -725,6 +727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5077999744977159065, guid: 29adad4e560a68148976a72975cdab26,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d2a0a94752eefa049b847b6ab69221b2, type: 2}
     - target: {fileID: 5077999744977159066, guid: 29adad4e560a68148976a72975cdab26,
         type: 3}
       propertyPath: m_LocalPosition.x
