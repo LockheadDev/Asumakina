@@ -11,6 +11,8 @@ public class DragNShoot : MonoBehaviour
     private TrajectoryLine tl;
     private Transform tr;
     public TimeManager tm;
+    public TrailRenderer trail;
+    const int maxTrailPositions = 256;
 
     
 
@@ -18,9 +20,11 @@ public class DragNShoot : MonoBehaviour
     Vector2 force;
     Vector3 startPoint;
     Vector3 endPoint;
+    Vector3[] trailpos= new Vector3[maxTrailPositions];
     // Start is called before the first frame update
     void Start()
     {
+        
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
         tr = GetComponent<Transform>();
@@ -31,7 +35,7 @@ public class DragNShoot : MonoBehaviour
         }
         if(tl == null)
         {
-            Debug.Log("TrajectoryLinenot found");
+            Debug.Log("TrajectoryLine not found");
             return;
         }
         if(tm == null)
@@ -39,12 +43,49 @@ public class DragNShoot : MonoBehaviour
             Debug.Log("TimeManager not found");
             return;
         }
+        if(trail==null)
+        {
+            Debug.Log("Trail not found");
+            return;
+        }
 
     }
-    
-    // Update is called once per frame
+    IEnumerator EliminateTrail()
+    {
+        yield return new WaitForSeconds(1);
+        
+    }
+
     void Update()
     {
+        transform.position = transform.position;
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+
+            tm.doSlowMotion();
+    
+        }
+         if(Input.GetKey(KeyCode.Return))
+        {
+
+            tm.doSlowMotion();
+
+    
+        }
+        if(Input.GetKeyUp(KeyCode.Return))
+        {
+
+            rb.velocity = new Vector3(0,0,0);
+            //Teleport Function
+            trail.GetPositions(trailpos);
+            transform.position = trailpos[0];
+            FindObjectOfType<TrailEffector>().Burst(trailpos);
+            //trail.Clear();
+
+    
+        }
+
+        Debug.Log(trail.positionCount.ToString());
         //Display angular velocity;
         FindObjectOfType<TextPopUP>().setInfo(rb.angularVelocity.ToString());
         if(Input.GetMouseButtonDown(0))
@@ -56,7 +97,6 @@ public class DragNShoot : MonoBehaviour
         {
             //Slowmo Effect
             tm.doSlowMotion();
-
 
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;

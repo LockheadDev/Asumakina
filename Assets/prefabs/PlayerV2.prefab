@@ -346,7 +346,7 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 3
-    numCornerVertices: 6
+    numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
     textureMode: 0
@@ -483,7 +483,7 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 3
-    numCornerVertices: 6
+    numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
     textureMode: 0
@@ -620,7 +620,7 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 3
-    numCornerVertices: 6
+    numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
     textureMode: 0
@@ -757,7 +757,7 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 3
       m_NumAlphaKeys: 3
-    numCornerVertices: 6
+    numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
     textureMode: 0
@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 2569205621416257544}
   - component: {fileID: 2109536496203873631}
   - component: {fileID: 5142414654107624535}
+  - component: {fileID: 2352493220200798603}
   m_Layer: 0
   m_Name: PlayerV2
   m_TagString: Untagged
@@ -997,6 +998,7 @@ MonoBehaviour:
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
   tm: {fileID: 0}
+  trail: {fileID: 5142414654107624535}
 --- !u!120 &2569205621416257544
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1185,7 +1187,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 0, g: 0.9176471, b: 1, a: 1}
+      key1: {r: 0, g: 0.91764736, b: 1, a: 0.5686275}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1218,5 +1220,19 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
+--- !u!114 &2352493220200798603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557208187026556145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f23fc86db43f64ead4d5a72039b996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burstEffector: {fileID: 5694401049273178206, guid: f540fd08cfa1450478ebb57c0934d139,
+    type: 3}
