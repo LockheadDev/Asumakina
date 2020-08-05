@@ -893,8 +893,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.4
+  m_LinearDrag: 0.8
+  m_AngularDrag: 0.35
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: d2a0a94752eefa049b847b6ab69221b2, type: 2}
   m_Interpolate: 0
@@ -999,6 +999,7 @@ MonoBehaviour:
   maxPower: {x: 8, y: 8}
   tm: {fileID: 0}
   trail: {fileID: 5142414654107624535}
+  angVel: 15
 --- !u!120 &2569205621416257544
 LineRenderer:
   m_ObjectHideFlags: 0

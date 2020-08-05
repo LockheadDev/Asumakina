@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147ebb5ae21e09b4eb7f1596a5570201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 40
+  speed: 12
+  damage: 50
   rb: {fileID: 5512943927744971905}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 8823771307152235540, guid: 489086cfecf6a694982bf1f387e90db7,
+    type: 3}
 --- !u!50 &5512943927744971905
 Rigidbody2D:
   serializedVersion: 4

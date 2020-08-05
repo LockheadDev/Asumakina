@@ -12,6 +12,7 @@ public class DragNShoot : MonoBehaviour
     private Transform tr;
     public TimeManager tm;
     public TrailRenderer trail;
+    public float angVel = 20f; 
     const int maxTrailPositions = 256;
 
     
@@ -92,8 +93,6 @@ public class DragNShoot : MonoBehaviour
 
     
         }
-
-        Debug.Log(trail.positionCount.ToString());
         //Display angular velocity;
         FindObjectOfType<TextPopUP>().setInfo(rb.angularVelocity.ToString());
         if(Input.GetMouseButtonDown(0))
@@ -108,10 +107,8 @@ public class DragNShoot : MonoBehaviour
 
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
-            //rb.AddTorque(Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2)))/50);
-                tr.eulerAngles = new Vector3(0,0,50*Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2))));
-
-           
+            rb.angularVelocity= (Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2)))*angVel);
+            tr.eulerAngles = new Vector3(0,0,50*Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2))));
             tl.RenderLine(startPoint,currentPoint);
         }
          if(Input.GetMouseButtonUp(0))
