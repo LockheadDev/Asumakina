@@ -56,6 +56,13 @@ public class DragNShoot : MonoBehaviour
         
     }
 
+    void ClearTrailPos(Vector3[] array)
+    {
+        for (int i=0; i<array.Length;i++)
+        {
+            array[i] = transform.position;
+        }
+    }
     void Update()
     {
         transform.position = transform.position;
@@ -80,7 +87,8 @@ public class DragNShoot : MonoBehaviour
             trail.GetPositions(trailpos);
             transform.position = trailpos[0];
             FindObjectOfType<TrailEffector>().Burst(trailpos);
-            //trail.Clear();
+            trail.Clear();
+            ClearTrailPos(trailpos);
 
     
         }
@@ -101,7 +109,9 @@ public class DragNShoot : MonoBehaviour
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
             //rb.AddTorque(Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2)))/50);
-            tr.eulerAngles = new Vector3(0,0,50*Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2))));
+                tr.eulerAngles = new Vector3(0,0,50*Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2))));
+
+           
             tl.RenderLine(startPoint,currentPoint);
         }
          if(Input.GetMouseButtonUp(0))

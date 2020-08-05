@@ -5,28 +5,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3f;
     public int health = 100;
     public GameObject deathEffect;
     public int atack = 1;
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        rb.velocity = transform.right*-speed;
-    }
-    
+
 
     public void TakeDamage(int damage)
     {
        FindObjectOfType<SoundMng>().PlaySound("EnemyDamage");
-        StartCoroutine(damageSprite());
         
        
         health -= damage;
@@ -55,14 +41,6 @@ public class Enemy : MonoBehaviour
          }
      }
 
-     IEnumerator damageSprite()
-     {
-         sr.color = new Color(100,0,0);
-         
-         yield return new WaitForSeconds(0.1F);
-         
-         sr.color = new Color(255,255,255);
-     }
      
      
 }
