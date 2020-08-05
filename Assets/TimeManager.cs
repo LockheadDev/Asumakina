@@ -5,17 +5,14 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownfactor =0.02f;
     public float slowdownLength =2f;
-    private bool isPaused;
+    private bool isPaused = false;
 
-    void Awake()
-    {
-        isPaused = FindObjectOfType<GeneralControl>().onPause;
-    }
+
 
     void Update()
     {
         isPaused = FindObjectOfType<GeneralControl>().onPause;
-        while(!isPaused){
+        if(!isPaused){
         Time.timeScale += (1f/slowdownLength)*Time.unscaledDeltaTime;
         Time.timeScale = Mathf.Clamp(Time.timeScale,0f,1f);
         }

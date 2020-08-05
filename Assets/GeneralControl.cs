@@ -11,7 +11,13 @@ public class GeneralControl : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) && !onPause)
         {
+            onPause =true;
             FindObjectOfType<TimeManager>().Pause();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && onPause)
+        {
+            onPause =false;
+            FindObjectOfType<TimeManager>().Resume();
         }
     }
 }
