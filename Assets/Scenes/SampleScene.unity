@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f148f8046663142a2f893911b1ff4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPause: 0
 --- !u!1 &2074045664
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +729,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620422035713224870, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620422035713224870, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2236224358760739848, guid: 99fa199a698c3544f83eac1ad3c7439b,
         type: 3}

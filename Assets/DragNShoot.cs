@@ -13,7 +13,7 @@ public class DragNShoot : MonoBehaviour
     public TimeManager tm;
     public TrailRenderer trail;
     public float angVel = 20f; 
-    const int maxTrailPositions = 256;
+    const int maxTrailPositions = 512;
 
     
 
@@ -66,37 +66,34 @@ public class DragNShoot : MonoBehaviour
     }
     void Update()
     {
-        transform.position = transform.position;
+        ClearTrailPos(trailpos);
+        trail.GetPositions(trailpos);
+
         if(Input.GetKeyDown(KeyCode.Return))
         {
-
             tm.doSlowMotion();
-    
         }
          if(Input.GetKey(KeyCode.Return))
         {
-
             tm.doSlowMotion();
-
-    
         }
         if(Input.GetKeyUp(KeyCode.Return))
         {
 
             rb.velocity = new Vector3(0,0,0);
             //Teleport Function
-            trail.GetPositions(trailpos);
-            transform.position = trailpos[0];
+
+            //transform.position = trailpos[0];
+            transform.position = trail.GetPosition(0);
             FindObjectOfType<TrailEffector>().Burst(trailpos);
             trail.Clear();
-            ClearTrailPos(trailpos);
-
-    
+            
         }
         //Display angular velocity;
         FindObjectOfType<TextPopUP>().setInfo(rb.angularVelocity.ToString());
         if(Input.GetMouseButtonDown(0))
         {
+            rb.velocity = new Vector3(0,0,0);
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z =15;
         }

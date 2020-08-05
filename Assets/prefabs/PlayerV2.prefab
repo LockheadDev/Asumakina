@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a39e2260a3b5441bb38aa5c163ca26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 2
+  power: 3
   rb: {fileID: 7557208187026556109}
   minPower: {x: -8, y: -8}
   maxPower: {x: 8, y: 8}
