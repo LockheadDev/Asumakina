@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
        FindObjectOfType<SoundMng>().PlaySound("EnemyDamage");
-        
        
         health -= damage;
         if (health <=0)
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        Score.scoreValue += 20;
+        FindObjectOfType<Score>().AddScore(20);
         PlayerPrefs.SetInt("enemiesKO", PlayerPrefs.GetInt("enemiesKO")+1);
     }
 

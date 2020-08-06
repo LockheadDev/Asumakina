@@ -30,6 +30,10 @@ public class SceneMng : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameObject.FindGameObjectsWithTag("Player")==null)
+        {
+            gameOver=true;
+        }
         if (gameOver == true)
         {
             GameOvermess.gamOv = true;

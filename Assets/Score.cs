@@ -6,28 +6,62 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public static int scoreValue = 0;
-
-    public Text score;
+    public static float scoreValue = 0;
+    private float megaScore;
+    private float score;
+    public TextMeshProUGUI scoreText;
     
 
     // Update is called once per frame
     void Update()
     {
-        if(score ==null)
+        if(scoreText ==null)
         {
-            return;
+            gameObject.AddComponent<TextMeshProUGUI>();
         }
-        score.color = Color.white;
-        score.text = scoreValue.ToString();
-        if (scoreValue > PlayerPrefs.GetInt("HighScore", 0))
+        scoreText.color = Color.white;
+        scoreText.text = scoreValue.ToString();
+        if (scoreValue > PlayerPrefs.GetFloat("HighScore", 0F))
         {
-            PlayerPrefs.SetInt("HighScore",scoreValue);
+            PlayerPrefs.SetFloat("HighScore",scoreValue);
         }
         if (scoreValue == PlayerPrefs.GetInt("HighScore"))
         {
-            score.color=Color.cyan;
+            scoreText.color=Color.cyan;
         }
     }
+    public void AddScore(float newScore)
+    {
+        if(megaScore==0)
+        {
+         score += newScore;
+         megaScore=1;
+         StartCoroutine ("MultiScoreThing");
+     }
+     else if(megaScore==1)
+     {
+         score += newScore + 1;
+         megaScore=2;
+         StopCoroutine ("MultiScoreThing");
+     }
+     else if(megaScore==2)
+     {
+         score += newScore + 2;
+         megaScore=3;
+         StopCoroutine ("MultiScoreThing");
+     }
+     UpdateScore ();
+     StartCoroutine("MultiScoreThing");
+ }
 
+ IEnumerator MultiScoreThing ()
+ {
+     yield return new WaitForSeconds (4);
+     megaScore = 0;
+ }
+
+ void UpdateScore()
+ {
+     scoreValue=score;
+ }
 }
