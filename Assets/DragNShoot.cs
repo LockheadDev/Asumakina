@@ -87,7 +87,7 @@ public class DragNShoot : MonoBehaviour
                 //velocity ->0
                 rb.velocity = new Vector3(0,0,0);
                 //teleport
-                transform.position = trail.GetPosition(0);
+                transform.position = testval[0];
                 //burst effect on trail
                 FindObjectOfType<TrailEffector>().Burst(testval);
                 //clear trail

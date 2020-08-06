@@ -23,11 +23,12 @@ public class Score : MonoBehaviour
         scoreText.text = scoreValue.ToString();
         if (scoreValue > PlayerPrefs.GetFloat("HighScore", 0F))
         {
+            
             PlayerPrefs.SetFloat("HighScore",scoreValue);
         }
-        if (scoreValue == PlayerPrefs.GetInt("HighScore"))
+        if (scoreValue == PlayerPrefs.GetFloat("HighScore"))
         {
-            scoreText.color=Color.cyan;
+            scoreText.color=Color.yellow;
         }
     }
     public void AddScore(float newScore)

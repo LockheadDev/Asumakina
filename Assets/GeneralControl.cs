@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GeneralControl : MonoBehaviour
 {
-
     public bool onPause = false;
+    public GameObject pauseMenu;
+
 
     void Update()
     {
@@ -13,16 +14,22 @@ public class GeneralControl : MonoBehaviour
         {
             onPause =true;
             FindObjectOfType<TimeManager>().Pause();
+
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && onPause)
         {
             onPause =false;
             FindObjectOfType<TimeManager>().Resume();
         }
-        if(Input.GetKeyUp(KeyCode.R))
+        if(Input.GetKey(KeyCode.R))
         {
             FindObjectOfType<SceneTransition>().Reload();
         }
+         if(Input.GetKey(KeyCode.T))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
 
     }
 }
