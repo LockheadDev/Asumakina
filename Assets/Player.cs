@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
         if(wp == null) {Debug.Log("no weapon found");}
         sr = GetComponent<SpriteRenderer>();
         hp = FindObjectOfType<HealthPlyr>();
+        if(hp == null)
+        {
+            Debug.Log("wat");
+        }
         hp.numofhearts = 3;
         hp.health = health;
     }

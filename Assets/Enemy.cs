@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
          if (plyr != null)
          {
              plyr.TakeDamage(atack);
-             
+             Die();
          }
      }
 

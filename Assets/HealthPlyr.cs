@@ -15,12 +15,10 @@ public class HealthPlyr : MonoBehaviour
     public Image[] hearts;
     public Image[] armors;
 
-    public Sprite armor;
     public Sprite heart;
 
     public Sprite emptyheart;
 
-    public Sprite emptyarmor;
     // Start is called before the first frame update
     
 
@@ -28,7 +26,6 @@ public class HealthPlyr : MonoBehaviour
     void Update()
     {
         UpdateHealth();
-        UpdateArmor();
     }
 
 
@@ -60,35 +57,7 @@ public class HealthPlyr : MonoBehaviour
             }
         }
     }
+}
 
-    void UpdateArmor()
-        {
-            if (armorvalue > numofarmor)
-            {
-                armorvalue = numofarmor;
-            }
-
-            for (int i = 0; i < armors.Length; i++)
-            {
-                if (i < armorvalue)
-                {
-                   armors[i].sprite = armor;
-                }
-                else
-                {
-                    armors[i].sprite = emptyarmor;
-                }
-
-                if (i < numofarmor)
-                {
-                    armors[i].enabled = true;
-                }
-                else
-                {
-                    armors[i].enabled = false;
-                }
-            }
-        }
-    }
 
     

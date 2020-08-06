@@ -14,6 +14,8 @@ public class DragNShoot : MonoBehaviour
     public TimeManager tm;
     public TrailRenderer trail;
     public float angVel = 20f; 
+    private TimeBar timeBar;
+    public bool disableControls = false;
 
 
     
@@ -31,6 +33,7 @@ public class DragNShoot : MonoBehaviour
         tl = GetComponent<TrajectoryLine>();
         tr = GetComponent<Transform>();
         tm = FindObjectOfType<TimeManager>();
+        timeBar = FindObjectOfType<TimeBar>();
         if(tr==null)
         {
             Debug.Log("Transform not found");
@@ -64,35 +67,44 @@ public class DragNShoot : MonoBehaviour
 
     void Update()
     {
+        //Display angular velocity;
+        FindObjectOfType<TextPopUP>().setInfo(rb.angularVelocity.ToString());
         //getting trail render positions
         Vector3[] testval= new Vector3[trail.positionCount];
         trail.GetPositions(testval);
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        //Controls
+        if(!disableControls)
         {
-            tm.doSlowMotion();
-        }
-         if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKey(KeyCode.Space))
         {
-            tm.doSlowMotion();
-        }
-        if(Input.GetKeyUp(KeyCode.Return))
+            if(Input.GetMouseButtonDown(1))
+            {
+            //start ANIMATION
+            }
+            if(Input.GetMouseButton(1))
+            {
+                //velocity ->0
+                rb.velocity = new Vector3(0,0,0);
+                //teleport
+                transform.position = trail.GetPosition(0);
+                //burst effect on trail
+                FindObjectOfType<TrailEffector>().Burst(testval);
+                //clear trail
+                trail.Clear();
+            }
+                tm.doSlowMotion();
+                timeBar.isConsuming = true;
+            }
+        if(Input.GetKeyUp(KeyCode.Space))
         {
-            //velocity ->0
-            rb.velocity = new Vector3(0,0,0);
-            //teleport
-            transform.position = trail.GetPosition(0);
-            //burst effect on trail
-            FindObjectOfType<TrailEffector>().Burst(testval);
-            //clear trail
-            trail.Clear();
-            
+            timeBar.isConsuming = false;
         }
-        //Display angular velocity;
-        FindObjectOfType<TextPopUP>().setInfo(rb.angularVelocity.ToString());
+
+        
+
         if(Input.GetMouseButtonDown(0))
         {
-            tm.doSlowMotion();
             rb.velocity = new Vector3(0,0,0);
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z =15;
@@ -118,6 +130,7 @@ public class DragNShoot : MonoBehaviour
             endPoint.z =15;
             force = new Vector2(Mathf.Clamp(startPoint.x-endPoint.x,minPower.x,maxPower.x),Mathf.Clamp(startPoint.y-endPoint.y,minPower.y,maxPower.y));
             rb.AddForce(force*power,ForceMode2D.Impulse);
+        }
         }
     }
 }

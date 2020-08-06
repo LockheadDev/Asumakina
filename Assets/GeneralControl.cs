@@ -19,5 +19,10 @@ public class GeneralControl : MonoBehaviour
             onPause =false;
             FindObjectOfType<TimeManager>().Resume();
         }
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            FindObjectOfType<SceneTransition>().Reload();
+        }
+
     }
 }
