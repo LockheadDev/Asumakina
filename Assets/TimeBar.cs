@@ -36,7 +36,6 @@ public class TimeBar : MonoBehaviour
     void Update()
     {
         timeLeft = Mathf.Clamp(timeLeft,0,maxTime);
-        Debug.Log(timeLeft);
         if(isConsumeEnabled)
         {
         if(timeLeft>0 && isConsuming)
