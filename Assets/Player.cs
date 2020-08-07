@@ -24,11 +24,16 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Weapon wp;
 
+    private TimeManager tm;
+    private DragNShoot dragNShoot;
+
    
 
     // Start is called before the first frame update
     void Start()
     {
+        dragNShoot = GetComponent<DragNShoot>();
+        tm = FindObjectOfType<TimeManager>();
         wp = GetComponent<Weapon>();
         if(wp == null) {Debug.Log("no weapon found");}
         sr = GetComponent<SpriteRenderer>();
@@ -44,6 +49,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(int damage)
     {
+        tm.doSlowMotion();
 
         FindObjectOfType<SoundMng>().PlaySound("PlayerDamage");
         StartCoroutine(effectSprite(sr));
@@ -57,6 +63,11 @@ public class Player : MonoBehaviour
             armor -= damage;
             hp.armorvalue = armor;
         }
+    }
+
+    public void AddTorque(float torq)
+    {
+        dragNShoot.AddTorque(torq);
     }
 
     

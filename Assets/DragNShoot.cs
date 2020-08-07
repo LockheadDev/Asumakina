@@ -65,6 +65,11 @@ public class DragNShoot : MonoBehaviour
         }
     }
 
+    public void AddTorque(float force)
+    {
+        rb.AddTorque(force);
+    }
+
     void Update()
     {
         //Display angular velocity;
@@ -76,33 +81,35 @@ public class DragNShoot : MonoBehaviour
         //Controls
         if(!disableControls)
         {
-        if(Input.GetKey(KeyCode.Space))
-        {
+            //click izquierdo
+        
             if(Input.GetMouseButtonDown(1))
             {
             //start ANIMATION
+ 
             }
             if(Input.GetMouseButton(1))
             {
+                tm.doSlowMotion();
                 //velocity ->0
                 rb.velocity = new Vector3(0,0,0);
                 //teleport
-                transform.position = testval[0];
+              
                 //burst effect on trail
-                FindObjectOfType<TrailEffector>().Burst(testval);
+                
                 //clear trail
-                trail.Clear();
-            }
-                tm.doSlowMotion();
+               
                 timeBar.isConsuming = true;
             }
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            timeBar.isConsuming = false;
-        }
+            if(Input.GetMouseButtonUp(1))
+            {
+                FindObjectOfType<TrailEffector>().Burst(testval);
+                transform.position = testval[0];
+                 trail.Clear();
+               timeBar.isConsuming = false;
+            }
 
-        
-
+        //Click derecho
         if(Input.GetMouseButtonDown(0))
         {
             rb.velocity = new Vector3(0,0,0);
@@ -111,6 +118,8 @@ public class DragNShoot : MonoBehaviour
         }
         if(Input.GetMouseButton(0))
         {
+            tm.doSlowMotionHard();
+            timeBar.isConsuming = true;
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
             rb.angularVelocity= (Mathf.Sqrt((Mathf.Pow(startPoint.x-currentPoint.x,2)+Mathf.Pow(startPoint.y-currentPoint.y,2)))*angVel);
@@ -124,7 +133,7 @@ public class DragNShoot : MonoBehaviour
 
          if(Input.GetMouseButtonUp(0))
         {
-
+            timeBar.isConsuming = false;
             tl.EndLine();
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z =15;
