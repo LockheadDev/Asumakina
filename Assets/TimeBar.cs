@@ -10,6 +10,7 @@ public class TimeBar : MonoBehaviour
     public bool isConsuming;
     public float waitForEnable=3f;
     public float slowFilling =4f;
+    public bool stop=false;
 
     private bool isTimeUp;
     private float timeLeft;
@@ -31,10 +32,19 @@ public class TimeBar : MonoBehaviour
         timeLeft=maxTime;
         isConsumeEnabled =true;
     }
-
+public void StopFilling()
+{
+    stop =true;
+}
+public void ResumeFilling()
+{
+    stop = false;
+}
     // Update is called once per frame
     void Update()
     {
+        if(!stop)
+        {
         timeLeft = Mathf.Clamp(timeLeft,0,maxTime);
         if(isConsumeEnabled)
         {
@@ -65,6 +75,7 @@ public class TimeBar : MonoBehaviour
             }
         }
         image.fillAmount=timeLeft/maxTime;
+        }
     }
 
     public bool getIsTimeUp()

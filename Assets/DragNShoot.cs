@@ -70,7 +70,7 @@ public class DragNShoot : MonoBehaviour
         rb.AddTorque(force);
     }
 
-    void CleanControls()
+    public void CleanControls()
     {
         trail.Clear();
         tl.EndLine();
@@ -89,7 +89,7 @@ public class DragNShoot : MonoBehaviour
             disableControls = true;
             CleanControls();
         }
-        else if(timeBar.isConsumeEnabled)
+        else if(timeBar.isConsumeEnabled&&!FindObjectOfType<GeneralControl>().onPause)
         {
             disableControls = false;
         }

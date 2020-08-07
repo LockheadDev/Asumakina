@@ -47,7 +47,6 @@ public class SceneMng : MonoBehaviour
 
         if (Time.timeScale == 0.0f)
         {
-            Debug.Log("eNTERING...");
             if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Return))
             {
                 Time.timeScale = 1;

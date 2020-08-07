@@ -52,13 +52,13 @@ public class SoundProgrammer : MonoBehaviour
     void playMainTheme()
     {
 
-        FindObjectOfType<SoundMng>().PlaySound("MainTheme");
-        FindObjectOfType<SoundMng>().Stop("GameTheme");
+        FindObjectOfType<SoundMng>().PlaySound("Music1");
+        FindObjectOfType<SoundMng>().Stop("Music2");
     }
     void playGameTheme()
     {
-        FindObjectOfType<SoundMng>().PlaySound("GameTheme");
-        FindObjectOfType<SoundMng>().Stop("MainTheme");
+        FindObjectOfType<SoundMng>().PlaySound("Music2");
+        FindObjectOfType<SoundMng>().Stop("Music1");
     }
 
 }
