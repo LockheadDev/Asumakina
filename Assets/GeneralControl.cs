@@ -11,7 +11,7 @@ public class GeneralControl : MonoBehaviour
 
     void Awake()
     {
-        
+        FindObjectOfType<SoundMng>().PlaySound("Music2");
     }
 
     void Update()

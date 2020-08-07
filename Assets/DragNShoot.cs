@@ -70,6 +70,13 @@ public class DragNShoot : MonoBehaviour
         rb.AddTorque(force);
     }
 
+    void CleanControls()
+    {
+        trail.Clear();
+        tl.EndLine();
+        timeBar.isConsuming = false;
+    }
+
     void Update()
     {
         //Display angular velocity;
@@ -77,6 +84,15 @@ public class DragNShoot : MonoBehaviour
         //getting trail render positions
         Vector3[] testval= new Vector3[trail.positionCount];
         trail.GetPositions(testval);
+        if(!timeBar.isConsumeEnabled)
+        {
+            disableControls = true;
+            CleanControls();
+        }
+        else if(timeBar.isConsumeEnabled)
+        {
+            disableControls = false;
+        }
 
         //Controls
         if(!disableControls)
@@ -91,13 +107,7 @@ public class DragNShoot : MonoBehaviour
             if(Input.GetMouseButton(1))
             {
                 tm.doSlowMotion();
-                //velocity ->0
                 rb.velocity = new Vector3(0,0,0);
-                //teleport
-              
-                //burst effect on trail
-                
-                //clear trail
                
                 timeBar.isConsuming = true;
             }

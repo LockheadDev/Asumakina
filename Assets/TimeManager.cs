@@ -6,20 +6,16 @@ public class TimeManager : MonoBehaviour
     public float slowdownfactor =0.02f;
     public float slowdownLength =2f;
     private bool isPaused = false;
-    private bool smooth;
+ 
 
 
 
     void Update()
     {
         isPaused = FindObjectOfType<GeneralControl>().onPause;
-        if(!isPaused && smooth){
+        if(!isPaused ){
         Time.timeScale += (1f/slowdownLength)*Time.unscaledDeltaTime;
         Time.timeScale = Mathf.Clamp(Time.timeScale,0f,1f);
-        }else{
-         Time.timeScale +=10*Time.unscaledDeltaTime;
-        Time.timeScale = Mathf.Clamp(Time.timeScale,0f,1f);
-        smooth=true;
         }
     
     }
@@ -41,6 +37,5 @@ public class TimeManager : MonoBehaviour
     public void doSlowMotionHard()
     {
         doSlowMotion();
-        smooth= false;
     }
 }

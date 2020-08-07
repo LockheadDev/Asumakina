@@ -14,7 +14,9 @@ public class TimeBar : MonoBehaviour
     private bool isTimeUp;
     private float timeLeft;
     private Image image;
-    private bool isConsumeEnabled;
+
+    [HideInInspector]
+    public bool isConsumeEnabled;
     // Start is called before the first frame update
     void Start()
     {

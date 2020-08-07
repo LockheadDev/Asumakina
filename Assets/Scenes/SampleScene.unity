@@ -777,15 +777,15 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1b3f80c9948c9b040aead0e9afa36ecc, type: 3}
     output: {fileID: 0}
     vol: 1
-    pitch: 0
-    loop: 0
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Music2
     clip: {fileID: 8300000, guid: 6eb35bbb5d2c5414bb6506f12f6cb9b5, type: 3}
     output: {fileID: 0}
-    vol: 0
-    pitch: 0
-    loop: 0
+    vol: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
@@ -1135,6 +1135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168765946}
   - component: {fileID: 1168765947}
+  - component: {fileID: 1168765948}
   m_Layer: 0
   m_Name: General Control
   m_TagString: Untagged
@@ -1170,6 +1171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onPause: 0
   pauseMenu: {fileID: 0}
+--- !u!114 &1168765948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168765945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0453b16440021694ba01b63fbbbbc5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1475803648
 GameObject:
   m_ObjectHideFlags: 0
