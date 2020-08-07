@@ -151,7 +151,7 @@ Transform:
   - {fileID: 721724548}
   - {fileID: 549728483}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422780790
 GameObject:
@@ -700,7 +700,7 @@ RectTransform:
   - {fileID: 1511989571}
   - {fileID: 1752730902}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -772,7 +772,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3716aec3136a4fd429a2f86062785a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Music1
+    clip: {fileID: 8300000, guid: 1b3f80c9948c9b040aead0e9afa36ecc, type: 3}
+    output: {fileID: 0}
+    vol: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Music2
+    clip: {fileID: 8300000, guid: 6eb35bbb5d2c5414bb6506f12f6cb9b5, type: 3}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    output: {fileID: 0}
+    vol: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &704038938
 Transform:
   m_ObjectHideFlags: 0
@@ -785,7 +890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721724546
 GameObject:
@@ -1157,7 +1262,7 @@ RectTransform:
   m_Children:
   - {fileID: 422780791}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1533,7 +1638,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: -15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6067,7 +6172,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752730901
 GameObject:
@@ -6530,7 +6635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3357491879634057007
 PrefabInstance:
@@ -6547,7 +6652,7 @@ PrefabInstance:
     - target: {fileID: 1037102992015671437, guid: 99fa199a698c3544f83eac1ad3c7439b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1037102992015671437, guid: 99fa199a698c3544f83eac1ad3c7439b,
         type: 3}
@@ -6732,6 +6837,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e3636f8923e212f42b6704a0be8a9636,
         type: 3}
+    - target: {fileID: 7557208185268883431, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185268883431, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185818844665, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185818844665, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185912976890, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185912976890, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185936464898, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557208185936464898, guid: 99fa199a698c3544f83eac1ad3c7439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7557208187026556108, guid: 99fa199a698c3544f83eac1ad3c7439b,
         type: 3}
       propertyPath: m_SortingOrder

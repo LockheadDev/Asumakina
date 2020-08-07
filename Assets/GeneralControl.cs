@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GeneralControl : MonoBehaviour
 {
+    
     public bool onPause = false;
     public GameObject pauseMenu;
+    
 
+    void Awake()
+    {
+        
+    }
 
     void Update()
     {
