@@ -259,4 +259,4 @@ MonoBehaviour:
   minVelocity: {x: 0.05, y: 0.05}
   despawnEffect: {fileID: 8823771307152235540, guid: 489086cfecf6a694982bf1f387e90db7,
     type: 3}
-  torque: 2000
+  torque: -2000
