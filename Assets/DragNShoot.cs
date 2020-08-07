@@ -97,12 +97,10 @@ public class DragNShoot : MonoBehaviour
         //Controls
         if(!disableControls)
         {
-            //click izquierdo
-        
+            //CLICK DERECHO
             if(Input.GetMouseButtonDown(1))
             {
-            //start ANIMATION
- 
+
             }
             if(Input.GetMouseButton(1))
             {
@@ -113,13 +111,14 @@ public class DragNShoot : MonoBehaviour
             }
             if(Input.GetMouseButtonUp(1))
             {
+                
                 FindObjectOfType<TrailEffector>().Burst(testval);
                 transform.position = testval[0];
                  trail.Clear();
                timeBar.isConsuming = false;
             }
 
-        //Click derecho
+        //CLICK IZQUIERDO
         if(Input.GetMouseButtonDown(0))
         {
             rb.velocity = new Vector3(0,0,0);
@@ -128,7 +127,7 @@ public class DragNShoot : MonoBehaviour
         }
         if(Input.GetMouseButton(0))
         {
-            tm.doSlowMotionHard();
+            tm.doSlowMotion();
             timeBar.isConsuming = true;
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
@@ -143,6 +142,7 @@ public class DragNShoot : MonoBehaviour
 
          if(Input.GetMouseButtonUp(0))
         {
+            tm.Resume();
             timeBar.isConsuming = false;
             tl.EndLine();
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
