@@ -13,7 +13,7 @@ public class DragNShoot : MonoBehaviour
     private Transform tr;
     public TimeManager tm;
     public TrailRenderer trail;
-    public float angVel = 20f; 
+    public float angVel = 30f; 
     private TimeBar timeBar;
     public bool disableControls = false;
 
@@ -100,7 +100,7 @@ public class DragNShoot : MonoBehaviour
             //CLICK DERECHO
             if(Input.GetMouseButtonDown(1))
             {
-
+               //FindObjectOfType<AudioChanger>().ChangeMusicPitch(0.5F);
             }
             if(Input.GetMouseButton(1))
             {
@@ -111,16 +111,19 @@ public class DragNShoot : MonoBehaviour
             }
             if(Input.GetMouseButtonUp(1))
             {
-                
+                FindObjectOfType<SoundMng>().PlaySound("Teleport1");
                 FindObjectOfType<TrailEffector>().Burst(testval);
                 transform.position = testval[0];
                  trail.Clear();
                timeBar.isConsuming = false;
+                FindObjectOfType<SoundMng>().Stop("SlowDown");
+                //FindObjectOfType<AudioChanger>().RestartMusicPitch();
             }
 
         //CLICK IZQUIERDO
         if(Input.GetMouseButtonDown(0))
         {
+            FindObjectOfType<SoundMng>().PlaySound("Drag");
             rb.velocity = new Vector3(0,0,0);
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z =15;
@@ -149,6 +152,7 @@ public class DragNShoot : MonoBehaviour
             endPoint.z =15;
             force = new Vector2(Mathf.Clamp(startPoint.x-endPoint.x,minPower.x,maxPower.x),Mathf.Clamp(startPoint.y-endPoint.y,minPower.y,maxPower.y));
             rb.AddForce(force*power,ForceMode2D.Impulse);
+            FindObjectOfType<SoundMng>().Stop("SlowDown");
         }
         }
     }

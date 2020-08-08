@@ -257,6 +257,6 @@ MonoBehaviour:
   speed: 5
   maxVelocity: {x: 0.5, y: 0.5}
   minVelocity: {x: 0.05, y: 0.05}
-  despawnEffect: {fileID: 8823771307152235540, guid: 489086cfecf6a694982bf1f387e90db7,
+  despawnEffect: {fileID: 7920834310529790524, guid: 968e8f1bb84df5846b1d2948e796f281,
     type: 3}
   torque: -2000

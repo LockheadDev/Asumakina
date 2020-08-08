@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class TimeBar : MonoBehaviour
 {
-    public float maxTime =5f;
+    public float maxTime =6f;
     public float timeSpeed =1f;
     public bool isConsuming;
     public float waitForEnable=3f;
-    public float slowFilling =4f;
+    public float slowFilling =3.5f;
     public bool stop=false;
 
     private bool isTimeUp;
