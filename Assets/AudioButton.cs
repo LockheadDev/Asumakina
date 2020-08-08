@@ -7,7 +7,7 @@ public class AudioButton : MonoBehaviour
     public GameObject cross;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         audioChanger = FindObjectOfType<AudioChanger>();
         cross.SetActive(false);
@@ -23,12 +23,12 @@ public class AudioButton : MonoBehaviour
 
         if(cross.activeSelf)
         {
-            audioChanger.MusicVol(false);
+            audioChanger.MusicVol(true);
             cross.SetActive(false);
         }
         else if(!cross.activeSelf)
         {
-            audioChanger.MusicVol(true);
+            audioChanger.MusicVol(false);
             cross.SetActive(true);
         }
         
@@ -38,12 +38,12 @@ public class AudioButton : MonoBehaviour
     {
         if(cross.activeSelf)
         {
-            audioChanger.FXVol(false);
+            audioChanger.FXVol(true);
             cross.SetActive(false);
         }
         else if(!cross.activeSelf)
         {
-            audioChanger.FXVol(true);
+            audioChanger.FXVol(false);
             cross.SetActive(true);
         }
     }
