@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 716143918}
   - component: {fileID: 716143917}
   m_Layer: 0
-  m_Name: Heal Spawn
+  m_Name: Pacc Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,12 +1428,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 1918555577388155689, guid: b2ac7d7c1ebc3d24293a6b75e2d581c3, type: 3}
+  - {fileID: 3122559009819174874, guid: bb84397e9c371d9419a0c85ef2413709, type: 3}
   spawnWait: 0
   spawnLeastWait: 5
-  spawnMostWait: 20
+  spawnMostWait: 15
   minSpawnAtOneTime: 0
   maxSpawnAtOneTime: 2
-  startWait: 10
+  startWait: 8
   stop: 0
 --- !u!1 &721724546
 GameObject:

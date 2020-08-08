@@ -70,6 +70,11 @@ public class DragNShoot : MonoBehaviour
         rb.AddTorque(force);
     }
 
+    public void FillTimeBar()
+    {
+        timeBar.FillTimeBar();
+    }
+
     public void CleanControls()
     {
         trail.Clear();

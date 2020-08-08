@@ -40,6 +40,10 @@ public void ResumeFilling()
 {
     stop = false;
 }
+public void FillTimeBar()
+{
+    timeLeft=maxTime;
+}
     // Update is called once per frame
     void Update()
     {

@@ -70,7 +70,10 @@ public class Player : MonoBehaviour
         dragNShoot.AddTorque(torq);
     }
 
-    
+    public void FillTimeBar()
+    {
+        dragNShoot.FillTimeBar();
+    }
     
     public void Heal(int ht)
     {
